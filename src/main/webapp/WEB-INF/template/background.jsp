@@ -15,6 +15,11 @@ body {
 	background-color: #FFFFFF;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 .background_div {
 	margin: auto;
 	width: 70%;
@@ -41,14 +46,24 @@ body {
 
 .logo_div {
 	background-image: url(resources/image/logo.jpg); /*背景图片*/
-	width: 100%;
+	width: 180px;
 	height: 100%;
 	background-repeat: no-repeat; /*图片不重复，即不会填充div*/
-	margin: auto auto; /*居中*/
+	float: left;
+	margin-top: 2px;
+	margin-left: 2px;
 	background-size: cover;
 	-moz-background-size: cover; /*图片填充整个区域 */
 	position: relative;
+	background-size: cover;
 }
+
+.user_div {
+	float: right;
+	margin-bottom: 2px;
+	margin-right: 5px;
+}
+
 </style>
 <sitemesh:write property='head' />
 </head>
@@ -56,6 +71,24 @@ body {
 	<div class='background_div'>
 		<div class='top_div'>
 			<dir class="logo_div"></dir>
+			<div class="user_div">
+				<div>
+					<div style="display:inline;">
+						<input type="text" value="用户名" />
+					</div>
+					<div style="display:inline;">
+						<input type="checkbox">记住我
+					</div>
+				</div>
+				<div >
+					<div style="display:inline;">
+						<input type="text" value="密码" />
+					</div>
+					<div style="display:inline;">
+						<input type="button" value="登入">
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class='gps_div'></div>
 		<div class='central_div'>
