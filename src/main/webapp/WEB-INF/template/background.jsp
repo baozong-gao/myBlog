@@ -108,6 +108,7 @@ function ajax(url, user_id, pass){
     oAjax.onreadystatechange = function(){  //OnReadyStateChange事件
         if(oAjax.readyState == 4){  //4为完成
             if(oAjax.status == 200){    //200为成功
+            	alert(oAjax.responseText);
                 alert("成功");
             }else{
                 alert("失败");

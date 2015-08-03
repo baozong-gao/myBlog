@@ -29,6 +29,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	
+	
+	
 	@RequestMapping("/login")
 	public String login(@ModelAttribute UserVo uservo,
 			HttpServletRequest request, HttpServletResponse response) {
