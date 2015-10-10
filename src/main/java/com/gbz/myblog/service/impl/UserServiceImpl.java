@@ -2,6 +2,8 @@ package com.gbz.myblog.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.gbz.myblog.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	@Autowired
 	private UserMapper userMapper;
 
@@ -44,6 +47,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByNameAndPass(String name, String pass) {
+		if(name == null || pass == null){
+			logger.error("获取user数据失败，user：{}，pass：{}", name , pass );
+			return null;
+		}
 		
 		return userMapper.getUserByNameAndPass(name, pass);
 	}

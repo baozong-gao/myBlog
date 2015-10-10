@@ -28,9 +28,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
-	
-	
 	
 	@RequestMapping("/login")
 	public String login(@ModelAttribute UserVo uservo,
@@ -40,10 +37,12 @@ public class UserController {
 		String passwd = uservo.getPasswd();
 		logger.info("login user [{}] ",userName);
 		User user = userService.getUserByNameAndPass(userName, passwd);
+		int i =1/0;
 		if(user == null){
 			logger.info("login error: not user [{}]",userName);
-			return "";
+			return "login";
 		}
+		
 		HttpSession session = request.getSession();
 		session.setAttribute(SystemConstant.SESSION_KEY, user);
 		

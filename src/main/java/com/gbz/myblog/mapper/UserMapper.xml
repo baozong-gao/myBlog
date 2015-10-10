@@ -4,6 +4,7 @@
          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.gbz.myblog.mapper.UserMapper">
+
 	<resultMap type="com.gbz.myblog.bean.User" id="user">
 		<collection property="Id" column="id" />
 		<collection property="userName" column="user_name" />
@@ -15,17 +16,16 @@
 		id,
 		user_name,
 		password
-		from user where id = ${id}
+		from user where id = '${id}'
 	</select>
 	
-	<select id="getUserByNameAndPass" resultMap="user">
+	<select id="getUserByNameAndPass"  resultMap="user">
 		select
 		id,
 		user_name,
 		password
-		from user where user_name = ${user} and password = ${password}
+		from user where user_name = '${name}' and password = '${password}'
 	</select>
-
 
 </mapper> 
 

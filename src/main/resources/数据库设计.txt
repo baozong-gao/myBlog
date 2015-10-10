@@ -1,0 +1,14 @@
+1：创建数据库
+	create database onedb;
+	grant all privileges on onedb.* to root@"%" identified by "root" with grant option;
+	use onedb;
+	
+2：创建用户表
+	create table user(
+     id int(20) not null auto_increment,
+     user_name varchar(50) ,
+     password varchar(100),
+     primary key(id)
+     )engine=innodb default charset=utf8 auto_increment=1;
+     
+     
