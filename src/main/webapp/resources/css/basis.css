@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	font-family: 微软雅黑, 宋体;
+	font-size: 62.5%;
+	color: #000000;
+	background-color: #F3FAF3;
+}
+
+.shadow{
+   -webkit-box-shadow: #666 0px 0px 10px;
+   -moz-box-shadow: #666 0px 0px 10px;
+   box-shadow: #666 0px 0px 10px;
+   background: #EEFF99;
+}

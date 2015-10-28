@@ -3,23 +3,12 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
+<link href="resources/css/basis.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>高保宗的博客<sitemesh:write property='title' />
+<title>往事<sitemesh:write property='title' />
 </title>
 <style type='text/css'>
 /* Some CSS */
-body {
-	font-family: 微软雅黑, 宋体;
-	font-size: 62.5%;
-	color: #000000;
-	background-color: #FFFFFF;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
 .background_div {
 	margin: auto;
 	width: 70%;
@@ -61,7 +50,7 @@ body {
 .user_div {
 	float: right;
 	margin-bottom: 2px;
-	margin-right: 5px;
+	margin-right: 5px; 
 }
 
 </style>
@@ -144,7 +133,7 @@ function ajax(url, user_id, pass){
 			</div>
 		</div>
 		<div class='gps_div'></div>
-		<div class='central_div'>
+		<div class='central_div shadow'>
 			<sitemesh:write property='body' />
 		</div>
 		<div class='disclaimer_div'>Site disclaimer. This is an example.</div>
