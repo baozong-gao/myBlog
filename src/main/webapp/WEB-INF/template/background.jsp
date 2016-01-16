@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <link href="resources/css/basis.css" rel="stylesheet" type="text/css">
@@ -110,6 +111,7 @@ function ajax(url, user_id, pass){
 <sitemesh:write property='head' />
 </head>
 <body>
+<c:set value="${pageContext.request.contextPath}" var="projectPath" scope="session"></c:set> 
 	<div class='background_div'>
 		<div class='top_div'>
 			<dir class="logo_div"></dir>

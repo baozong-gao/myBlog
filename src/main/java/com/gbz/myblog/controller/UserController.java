@@ -48,14 +48,16 @@ public class UserController {
 
 		HttpSession session = request.getSession();
 		session.setAttribute(SystemConstant.SESSION_KEY, user);
-
+		
 		return "";
 	}
 
 	@RequestMapping("/logout")
 	public String logOut(HttpServletRequest request,
 			HttpServletResponse response) {
-
+		
+		HttpSession session = request.getSession();
+		
 		return "";
 	}
 

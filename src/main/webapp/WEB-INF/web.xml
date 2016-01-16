@@ -27,6 +27,15 @@
 		<servlet-name>myBlog</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<!-- url过滤 -->
+	<filter>
+		<filter-name>urlFileter</filter-name>
+		<filter-class>com.gbz.myblog.util.UrlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>urlFileter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<!-- sitemesh配置 -->
 	<filter>
 		<filter-name>sitemesh</filter-name>
@@ -36,6 +45,7 @@
 		<filter-name>sitemesh</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
 	<!-- 用spring Encoding,解决乱码问题 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>

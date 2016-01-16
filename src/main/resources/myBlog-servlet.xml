@@ -31,6 +31,7 @@
 	</bean>
 	<mvc:resources mapping="/resources/image/**" location="/resources/image/" cache-period="31556926"/>
 	<mvc:resources mapping="/resources/css/**" location="/resources/css/" />
+	<mvc:resources mapping="/resources/bootstrap/**" location="/resources/bootstrap/" />
 	
 	<mvc:view-controller path="/404" view-name="404"/>  
 	<mvc:view-controller path="/500" view-name="500"/>  

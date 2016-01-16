@@ -6,9 +6,9 @@
 <mapper namespace="com.gbz.myblog.mapper.UserMapper">
 
 	<resultMap type="com.gbz.myblog.bean.User" id="user">
-		<collection property="Id" column="id" />
-		<collection property="userName" column="user_name" />
-		<collection property="password" column="password" />
+		<collection property="Id" column="id" javaType="java.lang.Long" jdbcType="INTEGER"/>
+		<collection property="userName" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
 	</resultMap>
 
 	<select id="getUserById" parameterType="long" resultMap="user">
@@ -19,7 +19,7 @@
 		from user where id = '${id}'
 	</select>
 	
-	<select id="getUserByNameAndPass"  resultMap="user">
+	<select id="getUserByNameAndPass" resultMap="user">
 		select
 		id,
 		user_name,
