@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gbz.myblog.mapper.TblBfopOutcomeRecordMapper">
+
+	<resultMap type="com.gbz.myblog.bean.TblBfopOutcomeRecordVo" id="record">
+		<collection property="outcomeId" column="outcome_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="recvDate" column="recv_date" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="recvTime" column="recv_time" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="transAmt" column="trans_amt" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="transStatus" column="trans_status" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="acctNo" column="acct_no" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="acctName" column="acct_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="sendDate" column="send_date" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="sendTime" column="send_time" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="channelReturnCode" column="channel_return_code" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="channelReturnMsg" column="channel_return_msg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="channelReturnSeq1" column="channel_return_seq1" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="channelReturnSeq2" column="channel_return_seq2" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="channelCheckFlag" column="channel_check_flag" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="channelReturnDate" column="channel_return_date" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="channelReturnTime" column="channel_return_time" javaType="java.lang.String" jdbcType="CHAR"/>
+		<collection property="channelBatchId" column="channel_batch_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="branchId" column="branch_id" javaType="java.lang.String" jdbcType="CHAR"/>
+	</resultMap>
+
+	<insert id="addTransRecord" parameterType="TblBfopOutcomeRecordVo" >
+		insert into tbl_bfop_outcome_record(outcome_id,recv_date,recv_time,trans_amt,acct_no,acct_name,send_date,send_time,branch_id)
+		values(#{outcomeId},#{recvDate},#{recvTime},#{transAmt},#{acctNo},#{acctName},#{sendDate},#{sendTime},#{branchId});
+	</insert>
+
+	<update id="updateTransRecord" parameterType="TblBfopOutcomeRecordVo">
+		<if test="outcomeId !=null">
+		update tbl_bfop_outcome_record
+		<set>
+			<if test="recvDate !=null">recv_date = #{recvDate} </if>
+			<if test="recvTime !=null">recv_time = #{recvTime} </if>
+			<if test="transAmt !=null">trans_amt = #{transAmt} </if>
+			<if test="transStatus !=null">trans_status = #{transStatus} </if>
+			<if test="acctNo !=null">acct_no = #{acctNo} </if>
+			<if test="acctName !=null">acct_name = #{acctName} </if>
+			<if test="sendDate !=null">send_date = #{sendDate} </if>
+			<if test="sendTime !=null">send_time = #{sendTime} </if>
+			<if test="channelReturnCode !=null">channel_return_code = #{channelReturnCode} </if>
+			<if test="channelReturnMsg !=null">channel_return_msg = #{channelReturnMsg} </if>
+			<if test="channelReturnSeq1 !=null">channel_return_seq1 = #{channelReturnSeq1} </if>
+			<if test="channelReturnSeq2 !=null">channel_return_seq2 = #{channelReturnSeq2} </if>
+			<if test="channelCheckFlag !=null">channel_check_flag = #{channelCheckFlag} </if>
+			<if test="channelReturnDate !=null">channel_return_date = #{channelReturnDate} </if>
+			<if test="channelReturnTime !=null">channel_return_time = #{channelReturnTime} </if>
+			<if test="channelBatchId !=null">channel_batch_id = #{channelBatchId} </if>
+			<if test="branchId !=null">branch_id = #{branchId} </if>
+		</set>
+		where outcome_id = #{outcomeId}
+		</if>
+	</update>
+	
+	<sql id="recordFiled">
+		outcome_id,recv_date,recv_time,trans_amt,trans_status,acct_no,acct_name,send_date,send_time,channel_return_code,channel_return_msg,channel_return_seq1,channel_return_seq2,channel_check_flag,channel_return_date,channel_return_time,channel_batch_id,branch_id
+	</sql>
+	
+	<select id="getTransRecordByOutcomeId" parameterType="int" resultMap="record">
+		select
+		<include refid="recordFiled"></include>
+		from tbl_bfop_outcome_record where outcomeId = #{id}
+	</select>
+	
+	<select id="getTransRecordByRecvDate" parameterType="string" resultMap="record">
+		select
+		<include refid="recordFiled"></include>
+		from tbl_bfop_outcome_record where recv_date = #{recvDate}
+	</select>
+	
+	<select id="getTransRecordByRecvDate"  resultMap="record">
+		select
+		<include refid="recordFiled"></include>
+		from tbl_bfop_outcome_record where send_date = #{sendDate} and channel_return_seq1 = #{seq}
+	</select>
+
+</mapper> 
+

@@ -1,5 +1,7 @@
 package com.gbz.myblog.bean.view;
 
+import com.gbz.myblog.bean.LineNumberVo;
+
 public class PayRequestParams {
 
 	private String merId;   //商户编号
@@ -17,6 +19,16 @@ public class PayRequestParams {
 	private String branchId;   //收款人账户联行号
 	private String transAmt;   //交易金额
 	private String remark;   //客户流水摘要
+	
+	private LineNumberVo lineNumber;  //联行号
+	
+	
+	public LineNumberVo getLineNumber() {
+		return lineNumber;
+	}
+	public void setLineNumber(LineNumberVo lineNumber) {
+		this.lineNumber = lineNumber;
+	}
 	public String getMerId() {
 		return merId;
 	}

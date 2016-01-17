@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gbz.myblog.mapper.LineNumberMapper">
+
+	<resultMap type="com.gbz.myblog.bean.LineNumberVo" id="vo">
+		<collection property="branchId" column="branch_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="branchName" column="branch_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankProv" column="bank_prov" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankCity" column="bank_city" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankDept" column="bank_dept" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankResv" column="bank_resv" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<sql id="filed">
+		branch_id,branch_name,bank_prov,bank_city,bank_dept,bank_resv
+	</sql>
+	<select id="getLineNumberById" parameterType="long" resultMap="vo">
+		select
+		<include refid="filed"></include>
+		from line_number where branch_id = '${id}'
+	</select>
+
+</mapper> 
+
