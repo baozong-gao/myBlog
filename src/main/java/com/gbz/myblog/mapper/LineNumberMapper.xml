@@ -17,10 +17,10 @@
 	<sql id="filed">
 		branch_id,branch_name,bank_prov,bank_city,bank_dept,bank_resv
 	</sql>
-	<select id="getLineNumberById" parameterType="long" resultMap="vo">
+	<select id="getLineNumberById" parameterType="java.lang.Integer" resultMap="vo">
 		select
 		<include refid="filed"></include>
-		from line_number where branch_id = '${id}'
+		from line_number where branch_id = #{id}
 	</select>
 
 </mapper> 
