@@ -1,4 +1,4 @@
-package com.gbz.myblog.service;
+package com.gbz.myblog.service.dao;
 
 import java.util.List;
 

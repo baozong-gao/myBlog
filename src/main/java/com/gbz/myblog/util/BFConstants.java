@@ -15,7 +15,11 @@ public final class BFConstants extends ConfigurableContants {
 	public static final String QUERY_URL = getProperty("query.url", null);
 	public static final String MEMBER_ID = getProperty("member.Id", null);
 	public static final String TERMINAL_ID = getProperty("terminal.Id", null);
-
+	
+	public static final String OUTCOME_KEY_PATH = getProperty("outcome.key.path", null);
+	public static final String OUTCOME_KEY_PASSWD = getProperty("outcome.key.passwd", null);
+	public static final String OUTCOME_KEY_PRIVATE_ALIAS = getProperty("outcome.key.private.alias", null);
+	public static final String OUTCOME_KEY_PUBLIC_ALIAS = getProperty("outcome.key.public.alias", null);
 	public static String getStringByKey(String key) {
 		return getProperty(key);
 	}

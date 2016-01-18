@@ -44,7 +44,7 @@ public class UrlFilter implements Filter {
 				ch = ch.substring(hr.getContextPath().length());
 				config.getServletContext().getRequestDispatcher(ch).forward(request, response);
 			}
-		} else if (hr.getServletPath().equals("/login") || hr.getServletPath().equals("/")) {
+		} else if (hr.getServletPath().equals("/login") || hr.getServletPath().equals("/")|| hr.getServletPath().equals("/allcheer/outcome/pay")) {
 			chain.doFilter(request, response);
 		} else if (user != null && user.getUserName()!=null) {
 			chain.doFilter(request, response);

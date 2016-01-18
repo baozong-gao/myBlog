@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gbz.myblog.mapper.TblBfopIncomeBkpMapper">
+
+	<resultMap type="com.gbz.myblog.bean.TblBfopIncomeBkpVo" id="vo">
+		<collection property="merId" column="mer_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="merDate" column="mer_date" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="merCertNo" column="mer_cert_no" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="orderId" column="order_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="orderAmt" column="order_amt" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="cardNo" column="card_no" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="phone" column="phone" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="custName" column="cust_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankName" column="bank_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="bankRefNo" column="bank_ref_no" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="autcod" column="autcod" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="cseqno" column="cseqno" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="payret" column="payret" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<collection property="outcomeIdFk" column="outcome_id_fk" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<sql id="filed">
+		mer_id,mer_date,mer_cert_no,order_id,order_amt,card_no,phone,cust_name,bank_name,bank_ref_no,autcod,cseqno,payret,outcome_id_fk
+	</sql>
+	<insert id="addTransRecordBleak" parameterType="com.gbz.myblog.bean.TblBfopIncomeBkpVo">
+		insert into TBL_BFOP_INCOME_BKP(
+				<if test="merId !=null">mer_id,</if>
+				<if test="merDate !=null">mer_date,</if>
+				<if test="merCertNo !=null">mer_cert_no,</if>
+				<if test="orderId !=null">order_id,</if>
+				<if test="orderAmt !=null">order_amt,</if>
+				<if test="cardNo !=null">card_no,</if>
+				<if test="phone !=null">phone,</if>
+				<if test="custName !=null">cust_name,</if>
+				<if test="bankName !=null">bank_name,</if>
+				<if test="bankRefNo !=null">bank_ref_no,</if>
+				<if test="autcod !=null">autcod,</if>
+				<if test="cseqno !=null">cseqno,</if>
+				<if test="payret !=null">payret,</if>
+				outcome_id_fk
+	        )
+	        values(
+				<if test="merId !=null">#{merId},</if>
+				<if test="merDate !=null">#{merDate},</if>
+				<if test="merCertNo !=null">#{merCertNo},</if>
+				<if test="orderId !=null">#{orderId},</if>
+				<if test="orderAmt !=null">#{orderAmt},</if>
+				<if test="cardNo !=null">#{cardNo},</if>
+				<if test="phone !=null">#{phone},</if>
+				<if test="custName !=null">#{custName},</if>
+				<if test="bankName !=null">#{bankName},</if>
+				<if test="bankRefNo !=null">#{bankRefNo},</if>
+				<if test="autcod !=null">#{autcod},</if>
+				<if test="cseqno !=null">#{cseqno},</if>
+				<if test="payret !=null">#{payret},</if>
+				#{outcomeIdFk}
+	        );
+	</insert>
+	
+	<update id="updateTransRecordBleak" parameterType="com.gbz.myblog.bean.TblBfopIncomeBkpVo">
+		<if test="outcomeIdFk !=null">
+	        update TBL_BFOP_INCOME_BKP
+	        <set>
+	            <if test="merId !=null">mer_id = #{merId}, </if>
+				<if test="merDate !=null">mer_date = #{merDate}, </if>
+				<if test="merCertNo !=null">mer_cert_no = #{merCertNo}, </if>
+				<if test="orderId !=null">order_id = #{orderId}, </if>
+				<if test="orderAmt !=null">order_amt = #{orderAmt}, </if>
+				<if test="cardNo !=null">card_no = #{cardNo}, </if>
+				<if test="phone !=null">phone = #{phone}, </if>
+				<if test="custName !=null">cust_name = #{custName}, </if>
+				<if test="bankName !=null">bank_name = #{bankName}, </if>
+				<if test="bankRefNo !=null">bank_ref_no = #{bankRefNo}, </if>
+				<if test="autcod !=null">autcod = #{autcod}, </if>
+				<if test="cseqno !=null">cseqno = #{cseqno}, </if>
+				<if test="payret !=null">payret = #{payret}, </if>
+				<if test="outcomeIdFk !=null">outcome_id_fk = #{outcomeIdFk}, </if>
+	        </set>
+	        where outcome_id_fk = #{outcomeIdFk}
+	        </if>
+	</update>
+	
+	<select id="getTransRecordBleakByTransId" parameterType="java.lang.Integer" resultMap="vo">
+		select
+		<include refid="filed"></include>
+		from line_number where outcome_id_fk = #{id}
+	</select>
+
+</mapper> 

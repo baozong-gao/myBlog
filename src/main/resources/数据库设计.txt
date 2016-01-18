@@ -38,7 +38,7 @@
 4：交易备份表
 	create table TBL_BFOP_INCOME_BKP(
 	mer_id  VARCHAR(14) default '' COMMENT '商户号',
-	mer_date  CHAR(8) default '' COMMENT '商户交易日期',
+	mer_date  CHAR(14) default '' COMMENT '商户交易日期',
 	mer_cert_no  VARCHAR(100) default '' COMMENT '商户证件号',
 	order_id  VARCHAR(50) default '' COMMENT '交易订单号',
 	order_amt  VARCHAR(15) default '' COMMENT '交易金额',
@@ -50,7 +50,9 @@
 	autcod  VARCHAR(20) default '' COMMENT '授权号',
 	cseqno  VARCHAR(20) default '' COMMENT '凭证号',
 	payret  VARCHAR(2) default '' COMMENT '银行返回码',
-	index (mer_date)
+	outcome_id_fk VARCHAR(14) default '' COMMENT '结算表外键',
+	index (mer_date),
+	index (outcome_id_fk)
 	)engine=innodb default charset=utf8;
 5：联行号表
 	create table  line_number(

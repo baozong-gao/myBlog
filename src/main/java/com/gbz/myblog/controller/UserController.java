@@ -15,7 +15,7 @@ import com.gbz.myblog.bean.User;
 import com.gbz.myblog.bean.view.UserVo;
 import com.gbz.myblog.constant.FeedbackConstant;
 import com.gbz.myblog.constant.SystemConstant;
-import com.gbz.myblog.service.UserService;
+import com.gbz.myblog.service.dao.UserService;
 
 /**
  * 用户处理类 分担登入登出功能

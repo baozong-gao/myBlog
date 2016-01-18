@@ -3,5 +3,5 @@
 	<mapping path="/*" decorator="/WEB-INF/template/background.jsp" />
 	<!-- 指明满足“/exclude.jsp*”的页面，将被排除，不被装饰 -->
 	<mapping path="/login" exclue="true" />
-
+	<mapping path="/allcheer/outcome/pay" exclue="true" />
 </sitemesh>

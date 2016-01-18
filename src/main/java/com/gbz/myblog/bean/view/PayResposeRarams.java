@@ -9,8 +9,23 @@ public class PayResposeRarams {
 	private String sendTime;    //代付请求时间
 	private String tranId;    //全旗流水号
 	private String bankTranId;    //宝付流水号
+	private String bankReturnCode; //宝付应答码
 	private String bankReturnMsg;    //宝付应答信息
 	private String bankTranDate;    //宝付交易日期
+	private String bankBatchid; //银行批次号
+	
+	public String getBankBatchid() {
+		return bankBatchid;
+	}
+	public void setBankBatchid(String bankBatchid) {
+		this.bankBatchid = bankBatchid;
+	}
+	public String getBankReturnCode() {
+		return bankReturnCode;
+	}
+	public void setBankReturnCode(String bankReturnCode) {
+		this.bankReturnCode = bankReturnCode;
+	}
 	public String getRespType() {
 		return respType;
 	}

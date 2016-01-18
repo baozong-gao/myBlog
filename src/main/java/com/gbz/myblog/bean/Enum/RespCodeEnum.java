@@ -1,22 +1,24 @@
 package com.gbz.myblog.bean.Enum;
 
-public enum TransStatusEnum {
+public enum RespCodeEnum {
 
-	S("S","交易成功"),
-	F("F","交易失败"),
-	I("I","交易初始"),
-	E("E","系统错误");
+	S("00","交易成功"),
+	F("01","交易失败"),
+	E("99","系统错误");
 	
 	private String key;
 	private String message;
-	private TransStatusEnum(String key,String message){
+	private RespCodeEnum(String key,String message){
 		this.key = key;
 		this.message = message;
 	}
 	public boolean equals(String key){
 		return 	this.key.equalsIgnoreCase(key);
 	}
-	public String toString(){
+	public String toKeyString(){
 		return this.key;
+	}
+	public String toErrorMessage(){
+		return this.message;
 	}
 }
